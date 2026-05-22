@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galàctica — Selector d'Universos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+  <canvas id="starfield"></canvas>
+
+  <div class="home-layout">
+
+    <header class="home-title">
+      <h1>GALÀCTICA</h1>
+      <p>Selecciona un univers · Choose a universe · Elige un universo</p>
+    </header>
+
+    <div class="universe-grid">
+
+      <a href="star-wars.html" class="universe-card card-sw">
+        <span class="card-icon">⚔</span>
+        <span class="card-title">STAR WARS</span>
+        <span class="card-sub">Galàxia molt, molt llunyana</span>
+        <span class="card-meta">26 events · 8 eres · 18 personatges</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a href="lotr.html" class="universe-card card-lotr">
+        <span class="card-icon">💍</span>
+        <span class="card-title">La Terra Mitjana</span>
+        <span class="card-sub">J.R.R. Tolkien · El Senyor dels Anells</span>
+        <span class="card-meta">37 events · 5 èpoques · 24 personatges</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+    </div>
+
+    <p class="home-hint">Més universos aviat · More universes coming soon</p>
+
+  </div>
+
+  <script type="module">
+    import { initStarfield } from './src/starfield.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initStarfield();
+
+      // Entrance animations
+      gsap.fromTo('.home-title', { y: -24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.1 });
+      gsap.fromTo('.universe-card', { y: 32, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.15, duration: 0.6, ease: 'power2.out', delay: 0.35 });
+      gsap.fromTo('.home-hint', { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.85 });
+    });
+  </script>
+</body>
+</html>

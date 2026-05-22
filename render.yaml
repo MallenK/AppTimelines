@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: app-timelines
+    env: static
+    staticPublishPath: star-wars-timeline
+    buildCommand: ""
+    pullRequestPreviewsEnabled: false
