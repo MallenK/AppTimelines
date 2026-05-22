@@ -1,0 +1,223 @@
+/* LotR theme — layered on top of styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=MedievalSharp&display=swap');
+
+:root {
+  --bg-void:       #050804;
+  --bg-deep:       #080f06;
+  --bg-card:       rgba(10, 16, 8, 0.82);
+  --bg-glass:      rgba(12, 20, 9, 0.72);
+  --border-subtle: rgba(180, 140, 60, 0.12);
+  --border-glow:   rgba(180, 140, 60, 0.28);
+  --text-primary:  #e8dfc8;
+  --text-muted:    #8a7e66;
+  --glow-jedi-rgb: 201,168,76;
+  --glow-sith-rgb: 239,68,68;
+  --font-title:    'Cinzel', serif;
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+}
+
+/* Starfield warm tint overlay */
+#starfield { filter: sepia(0.25) hue-rotate(50deg) brightness(0.85); }
+
+/* Header */
+.app-header {
+  background: rgba(5, 8, 4, 0.88);
+  border-bottom-color: rgba(180, 140, 60, 0.18);
+}
+
+.logo-icon {
+  color: rgb(201, 168, 76);
+  text-shadow: 0 0 12px rgba(201,168,76,0.6);
+}
+
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 1rem;
+  color: rgb(201, 168, 76);
+  text-shadow: 0 0 18px rgba(201,168,76,0.45);
+  line-height: 1.2;
+}
+
+.logo-sub {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(201, 168, 76, 0.65);
+}
+
+/* Tabs */
+.tab-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-color: transparent;
+}
+
+.tab-btn:hover {
+  color: rgb(201, 168, 76);
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.tab-btn.active {
+  color: rgb(201, 168, 76);
+  background: rgba(201, 168, 76, 0.08);
+  border-color: rgba(201, 168, 76, 0.35);
+  box-shadow: 0 0 12px rgba(201,168,76,0.2);
+}
+
+/* Lang switcher */
+.lang-btn {
+  font-family: 'Cinzel', serif;
+}
+
+.lang-btn.active {
+  color: rgb(201, 168, 76);
+  border-color: rgba(201, 168, 76, 0.5);
+  background: rgba(201, 168, 76, 0.08);
+}
+
+/* Timeline section */
+.timeline-section {
+  background: transparent;
+}
+
+/* Cards */
+.event-card {
+  background: rgba(10, 16, 8, 0.85);
+  border-color: rgba(180, 140, 60, 0.12);
+}
+
+.event-card:hover,
+.event-card.shimmer {
+  border-color: rgba(201, 168, 76, 0.25);
+}
+
+.event-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.event-year-overlay {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+.era-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+}
+
+.event-desc {
+  font-size: 0.78rem;
+  color: rgba(232, 223, 200, 0.72);
+  line-height: 1.55;
+}
+
+.era-label-h {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+/* Sidebar */
+.chars-sidebar {
+  background: rgba(5, 8, 4, 0.9);
+  border-left-color: rgba(180, 140, 60, 0.14);
+}
+
+.sidebar-label {
+  font-family: 'Cinzel', serif;
+  color: rgba(201, 168, 76, 0.7);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+.char-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.char-faction-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+}
+
+/* Modal */
+.char-modal-inner {
+  background: rgba(8, 12, 6, 0.96);
+  border-color: rgba(180, 140, 60, 0.18);
+}
+
+.char-modal-name {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+}
+
+.char-modal-faction-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+}
+
+.meta-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.modal-era-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+}
+
+.char-modal-filter-btn {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.06em;
+}
+
+/* Back home button */
+.back-home-btn {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.4rem;
+  z-index: 200;
+  padding: 0.45rem 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: rgba(201, 168, 76, 0.8);
+  background: rgba(10, 16, 8, 0.88);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.back-home-btn:hover {
+  color: rgb(201, 168, 76);
+  border-color: rgba(201, 168, 76, 0.6);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+/* Scrollbar tint */
+.timeline-section::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.25);
+}
+.timeline-section::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 168, 76, 0.45);
+}
+.chars-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.2);
+}

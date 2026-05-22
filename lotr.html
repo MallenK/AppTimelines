@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terra Mitjana — Línia Temporal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="lotr-styles.css" />
+</head>
+<body>
+
+  <canvas id="starfield"></canvas>
+
+  <header class="app-header">
+    <div class="app-header-inner">
+      <div class="app-logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text" id="logoText">TERRA MITJANA<br><span class="logo-sub" id="logoSub">LÍNIA TEMPORAL</span></span>
+      </div>
+      <nav class="tabs-nav" id="tabsNav"></nav>
+      <div class="header-controls">
+        <div class="lang-switcher" id="langSwitcher"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-layout">
+
+    <main class="timeline-section" id="timelineSection">
+      <div class="timeline-wrap" id="timelineWrap"></div>
+    </main>
+
+    <aside class="chars-sidebar" id="charsSidebar">
+      <h2 class="sidebar-label">
+        <span class="sidebar-label-icon">◈</span>
+        <span data-i18n="charSectionLabel">Personatges</span>
+      </h2>
+      <div class="chars-grid" id="characterStrip"></div>
+      <p class="char-hint" data-i18n="charHint">Clica un personatge per veure la seva fitxa</p>
+    </aside>
+
+  </div>
+
+  <!-- Character modal -->
+  <div class="char-modal" id="charModal" role="dialog" aria-modal="true" aria-label="Character profile">
+    <div class="char-modal-inner" id="charModalInner">
+      <button class="char-modal-close" id="charModalClose" aria-label="Close">✕</button>
+      <div class="char-modal-image" id="charModalImg"></div>
+      <div class="char-modal-content">
+        <span class="char-modal-faction-badge" id="charModalFaction"></span>
+        <h2 class="char-modal-name" id="charModalName"></h2>
+        <div class="char-modal-meta">
+          <div class="char-modal-meta-item">
+            <span class="meta-label" data-i18n="speciesLabel">Espècie</span>
+            <span class="meta-value" id="charModalSpecies"></span>
+          </div>
+          <div class="char-modal-meta-item">
+            <span class="meta-label" data-i18n="homeworldLabel">Terra natal</span>
+            <span class="meta-value" id="charModalHomeworld"></span>
+          </div>
+          <div class="char-modal-meta-item">
+            <span class="meta-label" data-i18n="sideLabel">Bàndol</span>
+            <span class="meta-value" id="charModalSide"></span>
+          </div>
+        </div>
+        <p class="char-modal-bio" id="charModalBio"></p>
+        <div class="char-modal-eras" id="charModalEras"></div>
+        <button class="char-modal-filter-btn" id="charModalFilter"></button>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-home-btn" data-i18n="backHome">← Tornar al selector</a>
+
+  <script type="module" src="./src/lotr/app.js"></script>
+</body>
+</html>
