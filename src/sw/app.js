@@ -76,6 +76,37 @@ function initScrollHijack() {
   }, { passive: false });
 }
 
+function initMobileSidebar() {
+  const toggle   = document.getElementById('charsMobileToggle');
+  const sidebar  = document.getElementById('charsSidebar');
+  const backdrop = document.getElementById('charsMobileBackdrop');
+  if (!toggle || !sidebar) return;
+
+  function openSidebar() {
+    sidebar.classList.add('mobile-open');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    if (backdrop) backdrop.classList.add('visible');
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('mobile-open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    if (backdrop) backdrop.classList.remove('visible');
+  }
+
+  toggle.addEventListener('click', () => {
+    sidebar.classList.contains('mobile-open') ? closeSidebar() : openSidebar();
+  });
+
+  backdrop?.addEventListener('click', closeSidebar);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && sidebar.classList.contains('mobile-open')) closeSidebar();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initStarfield();
   initLangSwitcher();
@@ -86,4 +117,5 @@ document.addEventListener('DOMContentLoaded', () => {
   applyStaticI18n();
   initScrollHijack();
   initSearch();
+  initMobileSidebar();
 });
