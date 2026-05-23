@@ -40,6 +40,14 @@
         <span class="sidebar-label-icon">◈</span>
         <span data-i18n="charSectionLabel">Personatges</span>
       </h2>
+      <div class="sidebar-search">
+        <span class="sidebar-search-icon">⌕</span>
+        <input type="text" id="charSearch" class="sidebar-search-input"
+               data-i18n-placeholder="searchPlaceholder"
+               placeholder="Cerca personatges..." autocomplete="off" />
+        <button class="sidebar-search-clear" id="charSearchClear" aria-label="Clear search">✕</button>
+      </div>
+      <p class="sidebar-no-results" id="charNoResults" data-i18n="searchNoResults">Cap personatge trobat</p>
       <div class="chars-grid" id="characterStrip"></div>
       <p class="char-hint" data-i18n="charHint">Clica un personatge per veure la seva fitxa</p>
     </aside>

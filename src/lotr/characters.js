@@ -3,10 +3,63 @@ import { t } from './i18n/index.js';
 
 const selectedIds = new Set();
 let onFilterCallback = null;
+let searchQuery = '';
 
 export function initLotrCharacters(onFilter) {
   onFilterCallback = onFilter;
   renderCharacters();
+  applyCurrentSearch();
+}
+
+export function initLotrSearch() {
+  const input    = document.getElementById('charSearch');
+  const clearBtn = document.getElementById('charSearchClear');
+  if (!input) return;
+
+  input.addEventListener('input', () => {
+    searchQuery = input.value.trim().toLowerCase();
+    clearBtn?.classList.toggle('visible', searchQuery.length > 0);
+    applyCurrentSearch();
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    input.value = '';
+    searchQuery = '';
+    clearBtn.classList.remove('visible');
+    applyCurrentSearch();
+    input.focus();
+  });
+}
+
+function applyCurrentSearch() {
+  const noResults = document.getElementById('charNoResults');
+  let visibleCount = 0;
+
+  document.querySelectorAll('.char-card').forEach(card => {
+    const id   = card.dataset.id;
+    const char = CHARACTERS.find(c => c.id === id);
+
+    if (!char || !searchQuery) {
+      card.style.display = '';
+      if (char) visibleCount++;
+      return;
+    }
+
+    const name      = (t(`characters.${char.id}`) || '').toLowerCase();
+    const faction   = (t(`factions.${char.faction}`) || '').toLowerCase();
+    const species   = (char.species   || '').toLowerCase();
+    const homeworld = (char.homeworld || '').toLowerCase();
+
+    const matches = name.includes(searchQuery)    ||
+                    faction.includes(searchQuery)  ||
+                    species.includes(searchQuery)  ||
+                    homeworld.includes(searchQuery);
+
+    card.style.display = matches ? '' : 'none';
+    if (matches) visibleCount++;
+  });
+
+  if (noResults) noResults.classList.toggle('visible', visibleCount === 0 && searchQuery.length > 0);
 }
 
 export function initLotrModal() {

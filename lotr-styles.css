@@ -221,3 +221,36 @@ body {
 .chars-sidebar::-webkit-scrollbar-thumb {
   background: rgba(201, 168, 76, 0.2);
 }
+
+/* Search input — LotR gold theme */
+.sidebar-search-input {
+  border-color: rgba(180, 140, 60, 0.18);
+  background: rgba(12, 18, 8, 0.5);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.sidebar-search-input::placeholder {
+  color: rgba(138, 126, 102, 0.7);
+}
+.sidebar-search-input:focus {
+  border-color: rgba(201, 168, 76, 0.48);
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.1);
+  background: rgba(16, 24, 10, 0.6);
+}
+.sidebar-search-icon {
+  color: rgba(201, 168, 76, 0.5);
+}
+.sidebar-search-clear {
+  color: rgba(138, 126, 102, 0.7);
+}
+
+/* Mobile LotR tabs */
+@media (max-width: 768px) {
+  .tabs-nav {
+    border-top-color: rgba(180, 140, 60, 0.1);
+  }
+  .chars-sidebar {
+    border-bottom-color: rgba(180, 140, 60, 0.1);
+    background: rgba(5, 8, 4, 0.95);
+  }
+}

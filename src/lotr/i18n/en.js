@@ -3,6 +3,8 @@ export default {
   logoSub: 'TIMELINE',
   charSectionLabel: 'Characters',
   charHint: 'Click a character to see their profile',
+  searchPlaceholder: 'Search characters...',
+  searchNoResults: 'No characters found',
   filterBtn: 'Filter timeline',
   filterBtnRemove: 'Remove filter',
   speciesLabel: 'Species',

@@ -5,6 +5,8 @@ export default {
   charHint: 'Click a character to see their profile',
   comingSoon: 'COMING SOON',
   comingSoonSub: 'This universe is still being charted',
+  searchPlaceholder: 'Search characters...',
+  searchNoResults: 'No characters found',
   filterBtn: 'Filter timeline',
   filterBtnRemove: 'Remove filter',
   speciesLabel: 'Species',

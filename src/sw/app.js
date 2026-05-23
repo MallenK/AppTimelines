@@ -1,6 +1,6 @@
 import { initStarfield }  from '../shared/starfield.js';
 import { initTabs }       from './tabs.js';
-import { initCharacters, initModal } from './characters.js';
+import { initCharacters, initModal, initSearch } from './characters.js';
 import { initTimeline, filterTimeline, destroyTimeline } from './timeline/index.js';
 import { LANGS, LANG_LABELS, getLang, setLang, t } from './i18n/index.js';
 
@@ -19,6 +19,9 @@ function onCharacterFilter(selectedIds) {
 function applyStaticI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    el.placeholder = t(el.dataset.i18nPlaceholder);
   });
   const logoText = document.getElementById('logoText');
   if (logoText) logoText.childNodes[0].textContent = t('logoTitle');
@@ -82,4 +85,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTimeline();
   applyStaticI18n();
   initScrollHijack();
+  initSearch();
 });

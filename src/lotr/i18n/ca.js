@@ -3,6 +3,8 @@ export default {
   logoSub: 'LÍNIA TEMPORAL',
   charSectionLabel: 'Personatges',
   charHint: 'Clica un personatge per veure la seva fitxa',
+  searchPlaceholder: 'Cerca personatges...',
+  searchNoResults: 'Cap personatge trobat',
   filterBtn: 'Filtrar línia temporal',
   filterBtnRemove: 'Eliminar filtre',
   speciesLabel: 'Espècie',

@@ -5,6 +5,8 @@ export default {
   charHint: 'Clica un personatge per veure la seva fitxa',
   comingSoon: 'AVIAT',
   comingSoonSub: "Aquest univers encara s'està cartografiant",
+  searchPlaceholder: 'Cerca personatges...',
+  searchNoResults: 'Cap personatge trobat',
   filterBtn: 'Filtrar línia temporal',
   filterBtnRemove: 'Eliminar filtre',
   speciesLabel: 'Espècie',

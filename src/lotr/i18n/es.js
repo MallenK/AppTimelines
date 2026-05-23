@@ -3,6 +3,8 @@ export default {
   logoSub: 'LÍNEA TEMPORAL',
   charSectionLabel: 'Personajes',
   charHint: 'Haz clic en un personaje para ver su ficha',
+  searchPlaceholder: 'Buscar personajes...',
+  searchNoResults: 'No se encontraron personajes',
   filterBtn: 'Filtrar línea temporal',
   filterBtnRemove: 'Eliminar filtro',
   speciesLabel: 'Especie',
