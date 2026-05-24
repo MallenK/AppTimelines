@@ -42,6 +42,7 @@ export function setupAnimations(allCols) {
 }
 
 function initScrollSpotlight(allCols) {
+  if (window.innerWidth <= 768) return;
   const section = document.getElementById('timelineSection');
   if (!section) return;
 

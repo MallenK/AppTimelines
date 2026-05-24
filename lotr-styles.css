@@ -255,6 +255,10 @@ body {
     border-top-color: rgba(180, 140, 60, 0.22);
     background: rgba(5, 8, 4, 0.98);
   }
+  .chars-sidebar.mobile-open {
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+  }
   .chars-sidebar::before {
     background: rgba(201, 168, 76, 0.12);
   }

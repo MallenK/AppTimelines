@@ -59,6 +59,7 @@ function initLangSwitcher() {
 }
 
 function initScrollHijack() {
+  if (window.innerWidth <= 768) return;
   const sidebar  = document.getElementById('charsSidebar');
   const timeline = document.getElementById('timelineSection');
   if (!timeline) return;
