@@ -775,7 +775,11 @@ body {
   .lang-btn { font-size: 7.5px; padding: 4px 6px; }
 
   /* ── Layout: sidebar out of flow ── */
-  .app-layout { grid-template-columns: 1fr; }
+  .app-layout {
+    grid-template-columns: 1fr;
+    position: static;   /* removes stacking context so sidebar z:55 beats backdrop z:54 */
+    z-index: auto;
+  }
 
   /* ── Sidebar: bottom sheet ── */
   .chars-sidebar {

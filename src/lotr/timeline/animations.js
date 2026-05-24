@@ -1,6 +1,11 @@
 import { FACTIONS } from '../data/index.js';
 
 export function setupAnimations(allCols) {
+  if (window.innerWidth <= 768) {
+    setupMobileAnimations(allCols);
+    return;
+  }
+
   const section = document.getElementById('timelineSection');
 
   const observer = new IntersectionObserver(
@@ -39,6 +44,30 @@ export function setupAnimations(allCols) {
     initScrollSpotlight(allCols);
     initHoverEffects(allCols);
   }, 400);
+}
+
+function setupMobileAnimations(allCols) {
+  const section = document.getElementById('timelineSection');
+
+  allCols.forEach(({ card }) => gsap.set(card, { opacity: 0, y: 24 }));
+
+  let seq = 0;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const card = entry.target.querySelector('.event-card');
+        if (!card) return;
+        const delay = seq < 5 ? seq * 0.07 : 0;
+        seq++;
+        gsap.to(card, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', delay });
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.06, root: section }
+  );
+
+  allCols.forEach(({ col }) => observer.observe(col));
 }
 
 function initScrollSpotlight(allCols) {
